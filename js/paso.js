@@ -353,7 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
   cargarPeriodos();
 });
 
-btnInformes.addEventListener("click", agregarInforme);
+
 periodosSelect.addEventListener("change", cargarCargos);
 cargoSelect.addEventListener("change", cargarDistrito);
 distritoSelect.addEventListener("change", cargarSeccion);
@@ -364,19 +364,9 @@ seccionSelect.addEventListener("change", () => {
 });
 
 btnFiltrar.addEventListener("click", () => {
-  seleccion.seccion = seccionSelect.value;
-  console.log(seleccion);
-  const camposIncompletos = Object.keys(seleccion).some(
-    (key) => !seleccion[key]
-  );
-
-  if (camposIncompletos) {
-    showAlert("warning", "Debe completar todos los campos.");
-    return;
-  }
-
   showAlert("success", "Consulta realizada correctamente.");
-  console.log("seleccion", seleccion);
   btnInformes.disabled = false;
   filtrarResultados();
 });
+
+btnInformes.addEventListener("click", agregarInforme);

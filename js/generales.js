@@ -67,7 +67,7 @@ const cambiarMapa = () => {
   );
 
   if (provincia) {
-    tituloProvincia.textContent = provincia.provincia;
+    tituloProvincia.innerText = provincia.provincia; //puedo usar textContent
 
     mapaProvincia.innerHTML = provincia.svg;
   } else {
@@ -99,7 +99,7 @@ const filtrarResultados = async () => {
     resultados = await result.json();
     console.log(resultados);
 
-    let porcentajeNotNull = resultados.estadoRecuento.participacionPorcentaje
+    let porcentajeNotNull = resultados.estadoRecuento.participacionPorcentaje  //retorne 0 en vez de null
       ? resultados.estadoRecuento.participacionPorcentaje
       : 0;
 
