@@ -211,7 +211,7 @@ const completarResumenVotos = () => {
     if (cont < 7) {
       const divBarra = document.createElement("div");
       divBarra.classList.add("bar");
-      divBarra.style.width = `${agrupacion.votosPorcentaje}%`;
+      divBarra.style.width = `${agrupacion.votosPorcentaje}%`; //PDF ancho del divBarra 
       const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
         Math.random() * 256
       )}, ${Math.floor(Math.random() * 256)})`;
@@ -236,13 +236,6 @@ const completarResumenAgrupaciones = () => {
   agrupaciones.forEach((agrupacion) => {
     const fila = document.createElement("tr");
     const celda = document.createElement("td");
-
-    if (agrupacion.subTitulo) {
-      const subTitulo = document.createElement("h3");
-      subTitulo.classList.add("sub-titulo");
-      subTitulo.textContent = agrupacion.subTitulo;
-      celda.appendChild(subTitulo);
-    }
 
     const divText = document.createElement("div");
     divText.classList.add("text");
@@ -357,7 +350,7 @@ document.addEventListener("DOMContentLoaded", () => {
 periodosSelect.addEventListener("change", cargarCargos);
 cargoSelect.addEventListener("change", cargarDistrito);
 distritoSelect.addEventListener("change", cargarSeccion);
-seccionSelect.addEventListener("change", () => {
+seccionSelect.addEventListener("change", () => {  //Boton Filtrar
   seccionTitulo =
     seccionSelect.options[seccionSelect.selectedIndex].textContent;
   btnFiltrar.disabled = false;

@@ -160,7 +160,7 @@ const buscarData = async () => {
         //Lo limito a 3 para que quede mas esteico, si no esta la reestrticcion muestra todo
         if (count < 3) {
           count++;
-          tdDpa.appendChild(
+          tdDpa.appendChild(                           ///datos por agrupacion
             createDpa(
               agrupacion.nombreAgrupacion,
               `${agrupacion.votosPorcentaje}%`,
@@ -181,7 +181,7 @@ const buscarData = async () => {
   });
 };
 
-function createCard(title, value, color, logo) {
+function createCard(title, value, color, logo) {  //Datos generales..
   const card = document.createElement("div");
   card.className = "container-secundario-der-card1";
   card.style.background = color;
@@ -208,7 +208,7 @@ function createCard(title, value, color, logo) {
   return card;
 }
 
-function createDpa(name, percentage, votes) {
+function createDpa(name, percentage, votes) {  // Datos por agrupacion
   const containerDpa = document.createElement("div");
 
   containerDpa.className = "container-dpa";

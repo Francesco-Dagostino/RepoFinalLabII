@@ -47,7 +47,7 @@ let seccionTitulo = "";
 let datosGenerales = null; // Almacena los datos que retorna la API
 let resultados; // Almacena los datos que retorna la API
 
-btnFiltrar.disabled = true;
+btnFiltrar.disabled = true; //desactivo
 btnInformes.disabled = true;
 
 //Funcion al presionar el filtrar
@@ -212,7 +212,7 @@ const completarResumenVotos = () => {
     if (cont < 7) {
       const divBarra = document.createElement("div");
       divBarra.classList.add("bar");
-      divBarra.style.width = `${agrupacion.votosPorcentaje}%`;
+      divBarra.style.width = `${agrupacion.votosPorcentaje}%`; //PDF ancho del divBarra 
       const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
         Math.random() * 256
       )}, ${Math.floor(Math.random() * 256)})`; //Result rgb(256,256,256)
@@ -226,7 +226,7 @@ const completarResumenVotos = () => {
   });
 };
 
-const completarResumenAgrupaciones = () => {
+const completarResumenAgrupaciones = () => { //Agrupaciones politicas
   const agrupaciones = resultados.valoresTotalizadosPositivos;
   const tablaAgrupaciones = document.querySelector(".grid-1 tbody");
 
@@ -237,13 +237,6 @@ const completarResumenAgrupaciones = () => {
   agrupaciones.forEach((agrupacion) => {
     const fila = document.createElement("tr");
     const celda = document.createElement("td");
-
-    // if (agrupacion.nombreAgrupacion) {
-    //   const subTitulo = document.createElement("h3");
-    //   subTitulo.classList.add("sub-titulo");
-    //   subTitulo.textContent = agrupacion.nombreAgrupacion;
-    //   celda.appendChild(subTitulo);
-    // }
 
     const divText = document.createElement("div");
     divText.classList.add("text");
@@ -359,11 +352,11 @@ document.addEventListener("DOMContentLoaded", () => {
 periodosSelect.addEventListener("change", cargarCargos);
 cargoSelect.addEventListener("change", cargarDistrito);
 distritoSelect.addEventListener("change", cargarSeccion);
-seccionSelect.addEventListener("change", () => {
+seccionSelect.addEventListener("change", () => {   //Boton Filtrar
   seccionTitulo =
     seccionSelect.options[seccionSelect.selectedIndex].textContent;
   btnFiltrar.disabled = false;
-});
+});  
 
 btnFiltrar.addEventListener("click", () => {
   showAlert("success", "Consulta realizada correctamente.");
